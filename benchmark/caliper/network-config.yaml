@@ -1,0 +1,23 @@
+name: Caliper test
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  - channelName: defaultchannel
+    contracts:
+    - id: fabcar_go
+
+organizations:
+  - mspid: ${MSPID}
+    identities:
+      certificates:
+      - name: '${USERID}'
+        clientPrivateKey:
+          path: 'generated/user.key'
+        clientSignedCert:
+          path: 'generated/user.cert'
+    connectionProfile:
+      path: 'download/connection_profile.json'
+      discover: true

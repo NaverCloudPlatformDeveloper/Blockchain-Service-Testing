@@ -1,0 +1,31 @@
+test:
+    name: fabcar-benchmark
+    description: benchmark using fabcar
+    workers:
+      type: local
+      number: 10
+    rounds:
+      - label: readTx
+        description: fabcar query
+        txDuration: 60
+        rateControl: 
+          type: maximum-rate
+          opts:
+            tps: 500
+            step: 100
+            sampleInterval: 10
+        workload:
+          module: workload/queryCar.js
+          arguments:
+            assets: 100
+      - label: writeTx
+        description: fabcar write
+        txDuration: 60
+        rateControl: 
+          type: maximum-rate
+          opts:
+            tps: 500
+            step: 100
+            sampleInterval: 10
+        workload:
+          module: workload/createCar.js

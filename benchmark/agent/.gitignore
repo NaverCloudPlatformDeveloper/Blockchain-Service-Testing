@@ -1,0 +1,11 @@
+/bin/
+/target/
+.settings/
+.classpath
+.project
+wallet
+!wallet/.gitkeep
+download
+.DS_Store
+.idea/
+*.iml
